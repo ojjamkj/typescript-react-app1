@@ -1,0 +1,13 @@
+# 2021.03.12 (출처: https://the-illusionist.me/77 [The Illusionist])
+1) react프로젝트 생성
+    npx create-react-app my-app --typescript
+2) typescript 추가
+    npm install typescript @types/node @types/react @types/react-dom @types/jest
+3) js파일의 확장자를 tsx로 변경
+4) npm run start
+5) tsconfig.json 파일이 자동 생성됨
+
+
+
+
+
