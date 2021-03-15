@@ -19,7 +19,15 @@
     useState, useState를 이용한 customHook 구현
 
 
-# 2021.03.12 (https://2ssue.github.io/programming/electron-react/)
+# 2021.03.15 
+1. router를 가지고 놀아 보자.
+
+
+# 2021.MM.dd 
+(https://2ssue.github.io/programming/electron-react/)
 1) electron 추가
+
+
+#https://velog.io/@velopert/using-hooks-with-typescript
 
 
