@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Login.css';
 
 export default function Login({ setToken }:any)
@@ -35,14 +36,29 @@ export default function Login({ setToken }:any)
     );
 }
 
-async function loginUser(credentials:object) {
-    return fetch('http://localhost:8080/login',{
-        method:'POSt',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-    .then(data => data.json())
-}
+// async function loginUser(credentials:object) {
+//     return fetch('http://localhost:8080/login',{
+//         method:'POSt',
+//         headers:{
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(credentials)
+//     })
+//     .then(data => data.json())
+// }
 
+async function loginUser(credentials:object) {
+    try {
+        
+      const response = await axios.get("/login",
+      {
+          "data" : JSON.stringify(credentials)
+      });
+      console.log(response);
+
+      return response.data().json();
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }

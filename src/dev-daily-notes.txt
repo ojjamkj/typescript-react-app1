@@ -20,7 +20,16 @@
 
 
 # 2021.03.15 
-1. router를 가지고 놀아 보자.
+1. router를 가지고 놀아 보자. 사용법상의 큰 차이는 못 느끼겠다.
+    1) Browser router
+    2) Hash router 
+
+
+# 2021.03.17
+1. fetch() vs axios
+    1) axios로 호출을 하면 cross origin 에러가 발생
+        package.json에 proxy를 주면 된다고 해서 주었으면 마찬가지로 계속 오류가 났다.
+        내일 다시 시도해 보자. axios api부터 봐야 겠다.
 
 
 # 2021.MM.dd 
