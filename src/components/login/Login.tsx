@@ -49,14 +49,8 @@ export default function Login({ setToken }:any)
 
 async function loginUser(credentials:object) {
     try {
-        
-      const response = await axios.get("/login",
-      {
-          "data" : JSON.stringify(credentials)
-      });
-      console.log(response);
-
-      return response.data().json();
+        const response = await axios.post('/login', credentials);
+        return response.data;
     }
     catch (error) {
       console.log(error);

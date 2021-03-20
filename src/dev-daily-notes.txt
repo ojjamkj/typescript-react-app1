@@ -26,11 +26,18 @@
 
 
 # 2021.03.17
-1. fetch() vs axios
+1. fetch vs axios (https://liante0904.tistory.com/171)
     1) axios로 호출을 하면 cross origin 에러가 발생
         package.json에 proxy를 주면 된다고 해서 주었으면 마찬가지로 계속 오류가 났다.
         내일 다시 시도해 보자. axios api부터 봐야 겠다.
 
+    https://jasonwatmore.com/post/2020/07/17/react-axios-http-post-request-examples
+
+
+# 2021.03.19
+1. axios cross origin 에러 발생
+
+========================================================================================    
 
 # 2021.MM.dd 
 (https://2ssue.github.io/programming/electron-react/)
@@ -38,5 +45,5 @@
 
 
 #https://velog.io/@velopert/using-hooks-with-typescript
-
+#https://www.storyblok.com/tp/react-dynamic-component-from-json
 
