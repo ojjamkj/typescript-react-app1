@@ -17,10 +17,9 @@ function App() {
   return (
     <div className="wrapper">
       <h1>Application</h1>
-
+      
       <BrowserRouter>
-        <Navigation />
-        
+        <Navigation token={token}/>
         <Switch>          
           <Route path="/dashboard" exact={true} component={Dashboard}></Route>
           <Route path="/preferences" exact={true} component={Preferences}></Route>

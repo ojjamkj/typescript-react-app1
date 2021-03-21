@@ -36,6 +36,16 @@
 
 # 2021.03.19
 1. axios cross origin 에러 발생
+    1) fetch와 비교한 axios의 장점은 request의 파라미터와 response의 데이터를 자동으로 json으로 변형해 준다는 점. 
+
+# 2021.03.20
+1. axios로 가져온 menuData를 메뉴로 transform하는 방법을 아직 모른다.
+    1) array를 가져와 map 으로 for문을 돌리고 싶은데 map을 쓰지 못한다.
+
+# 2021.03.21
+    1) async, await를 아직도 완벽히 이해하지 못하고 있는 것 같다.
+
+    2) react에 대해 참고할 만한 사이트 : https://react.vlpt.us/basic/16-useEffect.html
 
 ========================================================================================    
 

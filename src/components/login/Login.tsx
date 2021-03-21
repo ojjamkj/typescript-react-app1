@@ -13,6 +13,7 @@ export default function Login({ setToken }:any)
           username,
           password
         });
+        console.log("a", token);
         setToken(token);
       }
       
@@ -55,4 +56,4 @@ async function loginUser(credentials:object) {
     catch (error) {
       console.log(error);
     }
-  }
+}
