@@ -44,8 +44,17 @@
 
 # 2021.03.21
     1) async, await를 아직도 완벽히 이해하지 못하고 있는 것 같다.
+    2) Navigation을 fetch해서 가져오면서 useState, useEffect 훅까지 공부를 하게 됐다.
+    3) useEffect 사용시 react life cycle 및 사용법을 제대로 모르면 무한루프에 빠지게 된다. 조심하다. useEffect는 마지막 인자로 
+       넘겨준 변수가 바뀌었을때 다시 rendering된다는 점 주의.
 
-    2) react에 대해 참고할 만한 사이트 : https://react.vlpt.us/basic/16-useEffect.html
+# 2021.03.23
+    1) electron 모듈 설치를 위해 "npm install electron --save-dev" 명령어 수행
+    2) https://www.freecodecamp.org/news/building-an-electron-application-with-create-react-app-97945861647c/
+    3) 실행순서
+        - node server.js
+        - npm run
+        - npm run electron-dev
 
 ========================================================================================    
 
@@ -56,4 +65,4 @@
 
 #https://velog.io/@velopert/using-hooks-with-typescript
 #https://www.storyblok.com/tp/react-dynamic-component-from-json
-
+#react에 대해 참고할 만한 사이트 : https://react.vlpt.us/basic/16-useEffect.html
