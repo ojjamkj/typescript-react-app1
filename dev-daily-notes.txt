@@ -59,11 +59,16 @@
 
 # 2021.03.28
     1) 개발편의성을 개선을 위해 "Foremen" 설치 (npm install --save-dev foreman)
-    2) Procfile-initial.js 파일을 이용해서 npm 시작 커맨드를 날리고 개발서버가 시작되면 electron 파일을 시작시킨다.
+    2) Procfile-initial.js 파일을 이용해서 npm 시작 커맨드를 날리고 React dev server가 시작되면 electron을 실행시킨다.
     3) foreman을 아직 잘 모르겠다. 학습하면서 좀더 찾아보자.
     4) foreman은 node foreman으로 불리고 프로세스 관리 툴인것 같다.
-
-
+    5) 이제 기동은 "npm run dev"로 한다.
+# 2021.03.28
+    1) react app에서 electron을 연결하기 위해 import를 시도 했고, 일단 api를 사용해서 로컬파일 목록을 표시해 보자.
+    2) 로컬디렉토리 파일을 읽어서 console.log에 표시하는 것 까지는 됐다.
+    3) react파일에서 node api를 사용하는 법을 잘 몰라서 하루를 까먹었다. 
+    
+https://github.com/electron-react-boilerplate/examples#table-of-contents
 ========================================================================================    
 
 # 2021.MM.dd 

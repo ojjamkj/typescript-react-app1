@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
+const isDev = require("electron-is-dev");
 
 function createWindow () {
   // Create the browser window.
@@ -8,7 +9,13 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      devTools: isDev,
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true,
+      nodeIntegrationInSubFrames: true,
+      preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: false,
+      enableRemoteModule: true
     }
   })
 
@@ -19,7 +26,13 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   });
+
   mainWindow.loadURL(startUrl);
+
+  if (isDev) {
+    mainWindow.webContents.openDevTools({ mode: 'detach' });
+  }
+  // mainWindow.loadFile(path.join(__dirname, '/../build/index.html'));
   //mainWindow.loadURL('http://localhost:3000')
 
   // Open the DevTools.

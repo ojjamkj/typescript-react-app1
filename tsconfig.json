@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "Procfile-initial.js"  ]
 }
