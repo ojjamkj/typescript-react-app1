@@ -55,6 +55,14 @@
         - node server.js
         - npm run
         - npm run electron-dev
+    4) 개발편의성을 위해 "npm install --save-dev foreman" 설치했지만 잘 되지 않았다.. 다시 시도해 보자
+
+# 2021.03.28
+    1) 개발편의성을 개선을 위해 "Foremen" 설치 (npm install --save-dev foreman)
+    2) Procfile-initial.js 파일을 이용해서 npm 시작 커맨드를 날리고 개발서버가 시작되면 electron 파일을 시작시킨다.
+    3) foreman을 아직 잘 모르겠다. 학습하면서 좀더 찾아보자.
+    4) foreman은 node foreman으로 불리고 프로세스 관리 툴인것 같다.
+
 
 ========================================================================================    
 
