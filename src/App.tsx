@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import 'devextreme/dist/css/dx.common.css';
+import 'devextreme/dist/css/dx.light.css';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Preferences from './components/Preferences/Preferences';
@@ -17,7 +19,7 @@ function App() {
 
   //ipcRenderer.send('ping');
   
-  read();
+
 
   if(!token) {
     return <Login setToken={setToken} />
@@ -25,7 +27,7 @@ function App() {
   return (
     <div className="wrapper">
       <h1>ChangeFlow Dev Tool</h1>
-      <FileList />
+      <FileList/>
       <BrowserRouter>
         <Navigation token={token}/>
         <Switch>          
@@ -41,17 +43,3 @@ export default App;
 
 
 
-function read() { 
-  
-  let values = [];
-  console.log(path.resolve(__dirname, './files/test.txt'));
-  window.fs.readFile(
-    path.resolve(__dirname, './files/test.txt'),'utf-8',      (err : any, data: any) => {
-      if (err) throw err;
-      values = data.toString().split('\n');
-      console.log(values)
-      //const listItems = values.map(val => <p>{val}</p>);
-      return [];
-    }
-  );
-}

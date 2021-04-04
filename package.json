@@ -12,6 +12,8 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
     "axios": "^0.21.1",
+    "devextreme": "20.2.6",
+    "devextreme-react": "20.2.6",
     "electron-is-dev": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

@@ -17,6 +17,6 @@
 
 window.ipcRenderer = require('electron').ipcRenderer;
 window.fs = require('fs');
-window.path = require('path')
+window.path = require('path');
 
 window.require = require;
