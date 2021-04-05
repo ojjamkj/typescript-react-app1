@@ -1,146 +1,26 @@
+import React, { useEffect } from 'react';
 import { Template } from 'devextreme-react/core/template';
 import TreeList, { Column, ColumnChooser, HeaderFilter, SearchPanel, Selection, Lookup } from 'devextreme-react/tree-list';
-import ArrayStore from 'devextreme/data/array_store';
+import DataSource  from 'devextreme/data/data_source';
 
-type cfFile = { id: string, par_id: string };
+type cfFile = { ID: string, ParID: string };
+let cfFiles: cfFile[] = [{ ID: "/files", ParID: "/" }];
 
+
+
+const dataSource = new DataSource({
+  store: {
+      type: "array",
+      data: cfFiles
+  }
+});
 
 export default function FileList() {
-  // const { app, Menu } = window.require('electron');
-  //const fs = electron.remote.require('fs');
-  //const ipcRenderer  = electron.ipcRenderer;
-
-  // const { app, Menu } = require('electron');
-  //const isMac = process.platform === 'darwin';
-
-  // const template = [
-  //     // { role: 'appMenu' }
-  //     ...(isMac ? [{
-  //       label: app.name,
-  //       submenu: [
-  //         { role: 'about' },
-  //         { type: 'separator' },
-  //         { role: 'services' },
-  //         { type: 'separator' },
-  //         { role: 'hide' },
-  //         { role: 'hideothers' },
-  //         { role: 'unhide' },
-  //         { type: 'separator' },
-  //         { role: 'quit' }
-  //       ]
-  //     }] : []),
-  //     // { role: 'fileMenu' }
-  //     {
-  //       label: 'File',
-  //       submenu: [
-  //         isMac ? { role: 'close' } : { role: 'quit' }
-  //       ]
-  //     },
-  //     // { role: 'editMenu' }
-  //     {
-  //       label: 'Edit',
-  //       submenu: [
-  //         { role: 'undo' },
-  //         { role: 'redo' },
-  //         { type: 'separator' },
-  //         { role: 'cut' },
-  //         { role: 'copy' },
-  //         { role: 'paste' },
-  //         ...(isMac ? [
-  //           { role: 'pasteAndMatchStyle' },
-  //           { role: 'delete' },
-  //           { role: 'selectAll' },
-  //           { type: 'separator' },
-  //           {
-  //             label: 'Speech',
-  //             submenu: [
-  //               { role: 'startSpeaking' },
-  //               { role: 'stopSpeaking' }
-  //             ]
-  //           }
-  //         ] : [
-  //           { role: 'delete' },
-  //           { type: 'separator' },
-  //           { role: 'selectAll' }
-  //         ])
-  //       ]
-  //     },
-  //     // { role: 'viewMenu' }
-  //     {
-  //       label: 'View',
-  //       submenu: [
-  //         { role: 'reload' },
-  //         { role: 'forceReload' },
-  //         { role: 'toggleDevTools' },
-  //         { type: 'separator' },
-  //         { role: 'resetZoom' },
-  //         { role: 'zoomIn' },
-  //         { role: 'zoomOut' },
-  //         { type: 'separator' },
-  //         { role: 'togglefullscreen' }
-  //       ]
-  //     },
-  //     // { role: 'windowMenu' }
-  //     {
-  //       label: 'Window',
-  //       submenu: [
-  //         { role: 'minimize' },
-  //         { role: 'zoom' },
-  //         ...(isMac ? [
-  //           { type: 'separator' },
-  //           { role: 'front' },
-  //           { type: 'separator' },
-  //           { role: 'window' }
-  //         ] : [
-  //           { role: 'close' }
-  //         ])
-  //       ]
-  //     },
-  //     {
-  //       role: 'help',
-  //       submenu: [
-  //         {
-  //           label: 'Learn More',
-  //           click: async () => {
-  //             const { shell } = require('electron')
-  //             await shell.openExternal('https://electronjs.org')
-  //           }
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // const template : any = [];
-  // const menu = Menu.buildFromTemplate(template);
-  // Menu.setApplicationMenu(menu);
-  // const fs = require('fs')
-  // const root = fs.readdirSync('D:/temp/tandem');
-
-  // const electron = window.electron;
-  // const fs = electron.remote.fs;
-  // const ipcRenderer  = electron.ipcRenderer; 
-
-  // ipcRenderer.send('',{});
-  // console.log(shell);
-  //shell.openExternal('https://electronjs.org').then((data)=>{console.log(data);});
-  // read();
-
-  //    const electron = window.require("electron")
-  //   const electron = window.require("electron");
-
-  //   ipcRenderer.send('ipc-req', '');
-  //    console.log('a', window.isElectron);
-  //    if (window.isElectron) {
-  //     console.log('a', window.ipcRenderer);
-  //     window.ipcRenderer.on('pong', (event, arg) => {
-  //         //this.setState({ipc: true})
-  //     })
-  // window.ipcRenderer = require('electron').ipcRenderer;
-  // ipcRenderer.send('ping')
-  // }
-
-
-  readDir();
-
+  useEffect(() => {
+      // A DataSource instance created outside a UI component should be disposed of manually.
+      readDir();
+      return () => { dataSource.dispose(); }
+  },[]);
 
 
   return (
@@ -149,9 +29,11 @@ export default function FileList() {
       showBorders={true}
       columnAutoWidth={true}
       wordWrapEnabled={true}
-      keyExpr="id"
-      parentIdExpr="par_id"
-      id="id"
+      keyExpr="ID"
+      parentIdExpr="ParID"
+      rootValue={'/'}
+      dataStructure="plain"
+      height="300px"
     >
       <SearchPanel visible={true} width={250} />
       <HeaderFilter visible={true} />
@@ -159,37 +41,39 @@ export default function FileList() {
       <ColumnChooser enabled={false} />
 
       <Column
-        dataField="id"
+        dataField="ID"
         width={300}
         caption="FILE"
         allowSorting={true}
         minWidth={200}
       />
       <Column
-        dataField="par_id"
-        visible={false}
-      >
-      </Column>
+        dataField="ParID"
+        visible={true}
+      />
+      
     </TreeList>
   );
 }
 
-const cfFiles: cfFile[] = [];
+
 
 
 
 
 
 function readDir() {
+
   const fs = window.require('fs');
   const path = window.require('path');
-
-  fs.readdir(path.resolve(__dirname, './files'), (err: any, files: any) => {
+  
+  fs.readdir(path.resolve(__dirname, 'files'), (err: any, files: any) => {
     files.map(function (file: string) {
-      console.log(file)
-      let f = { "id": file, "par_id": (__dirname + './files') } as cfFile;
+      let f = { ID: file, ParID: (__dirname + 'files') } as cfFile;
       cfFiles.push(f);
     })
+
+    console.log(cfFiles);
   });
 }
 
