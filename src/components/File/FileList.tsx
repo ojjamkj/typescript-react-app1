@@ -31,7 +31,7 @@ export default function FileList() {
       wordWrapEnabled={true}
       keyExpr="ID"
       parentIdExpr="ParID"
-      rootValue={'/'}
+      rootValue={"/"}
       dataStructure="plain"
       height="300px"
     >
